@@ -31,12 +31,12 @@ public class CommandPanel extends BasePanel {
         contentPanel.add(inputPanel, BorderLayout.NORTH);
         contentPanel.add(resultPanel, BorderLayout.CENTER);
 
-        // 创建分割面板，上半部分显示命令执行，下半部分显示日志
-        JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, contentPanel, createLogPanelWithScroll());
-        splitPane.setResizeWeight(0.5); // 50%空间给命令执行，50%给日志
-        splitPane.setOneTouchExpandable(true); // 添加快速展开/折叠按钮
+//        // 创建分割面板，上半部分显示命令执行，下半部分显示日志
+//        JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, contentPanel, createLogPanelWithScroll());
+//        splitPane.setResizeWeight(0.5); // 50%空间给命令执行，50%给日志
+//        splitPane.setOneTouchExpandable(true); // 添加快速展开/折叠按钮
 
-        add(splitPane, BorderLayout.CENTER);
+        add(contentPanel, BorderLayout.CENTER);
     }
 
     /**
@@ -70,7 +70,6 @@ public class CommandPanel extends BasePanel {
         resultArea = new JTextArea();
         resultArea.setEditable(false);
         resultArea.setFont(new Font("Consolas", Font.PLAIN, 12));
-        resultArea.setBackground(new Color(240, 240, 240));
 
         JScrollPane resultScrollPane = new JScrollPane(resultArea);
         resultScrollPane.setBorder(BorderFactory.createTitledBorder("执行结果"));

@@ -91,7 +91,7 @@ public abstract class BasePanel extends JPanel {
         setOptimalFont(logArea);
 
         // 设置日志区域的背景色
-        logArea.setBackground(new Color(248, 248, 248)); // 浅灰色背景
+//        logArea.setBackground(new Color(248, 248, 248)); // 浅灰色背景
 
         // 创建带滚动条的面板
         JScrollPane scrollPane = new JScrollPane(logArea);
