@@ -14,75 +14,87 @@ public class VulnData {
     private String pocFilePath;
     private boolean isValid;
 
-public String getVulnName() {
-    return vulnName;
-}
+    public VulnData(String vulnName, String cve, String vulnType, String url) {
+        this.vulnName = vulnName;
+        this.vulnType = vulnType;
+        this.targetUrl = url;
+        this.createTime = LocalDateTime.now();
+        this.lastUsedTime = LocalDateTime.now();
+        this.vulnStatus = "未验证";
+        this.pocFilePath = "";
+        this.isValid = false;
+        this.remark = cve;
+    }
 
-public void setVulnName(String vulnName) {
-    this.vulnName = vulnName;
-}
+    public String getVulnName() {
+        return vulnName;
+    }
 
-public String getTargetUrl() {
-    return targetUrl;
-}
+    public void setVulnName(String vulnName) {
+        this.vulnName = vulnName;
+    }
 
-public void setTargetUrl(String targetUrl) {
-    this.targetUrl = targetUrl;
-}
+    public String getTargetUrl() {
+        return targetUrl;
+    }
 
-public String getRemark() {
-    return remark;
-}
+    public void setTargetUrl(String targetUrl) {
+        this.targetUrl = targetUrl;
+    }
 
-public void setRemark(String remark) {
-    this.remark = remark;
-}
+    public String getRemark() {
+        return remark;
+    }
 
-public String getVulnType() {
-    return vulnType;
-}
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 
-public void setVulnType(String vulnType) {
-    this.vulnType = vulnType;
-}
+    public String getVulnType() {
+        return vulnType;
+    }
 
-public LocalDateTime getCreateTime() {
-    return createTime;
-}
+    public void setVulnType(String vulnType) {
+        this.vulnType = vulnType;
+    }
 
-public void setCreateTime(LocalDateTime createTime) {
-    this.createTime = createTime;
-}
+    public LocalDateTime getCreateTime() {
+        return createTime;
+    }
 
-public LocalDateTime getLastUsedTime() {
-    return lastUsedTime;
-}
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
+    }
 
-public void setLastUsedTime(LocalDateTime lastUsedTime) {
-    this.lastUsedTime = lastUsedTime;
-}
+    public LocalDateTime getLastUsedTime() {
+        return lastUsedTime;
+    }
 
-public String getVulnStatus() {
-    return vulnStatus;
-}
+    public void setLastUsedTime(LocalDateTime lastUsedTime) {
+        this.lastUsedTime = lastUsedTime;
+    }
 
-public void setVulnStatus(String vulnStatus) {
-    this.vulnStatus = vulnStatus;
-}
+    public String getVulnStatus() {
+        return vulnStatus;
+    }
 
-public String getPocFilePath() {
-    return pocFilePath;
-}
+    public void setVulnStatus(String vulnStatus) {
+        this.vulnStatus = vulnStatus;
+    }
 
-public void setPocFilePath(String pocFilePath) {
-    this.pocFilePath = pocFilePath;
-}
+    public String getPocFilePath() {
+        return pocFilePath;
+    }
 
-public boolean isValid() {
-    return isValid;
-}
+    public void setPocFilePath(String pocFilePath) {
+        this.pocFilePath = pocFilePath;
+    }
 
-public void setValid(boolean isValid) {
-    this.isValid = isValid;
-}
+    public boolean isValid() {
+        return isValid;
+    }
+
+    public void setValid(boolean isValid) {
+        this.isValid = isValid;
+    }
 }
