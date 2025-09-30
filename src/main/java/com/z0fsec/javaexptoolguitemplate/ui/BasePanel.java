@@ -69,7 +69,7 @@ public abstract class BasePanel extends JPanel {
         Style style = logStyleContext.addStyle(styleName, null);
         StyleConstants.setForeground(style, color);
         StyleConstants.setFontSize(style, 12);
-        StyleConstants.setFontFamily(style, "Microsoft YaHei UI");
+        StyleConstants.setFontFamily(style, "Microsoft YaHei");
         if (italic) {
             StyleConstants.setItalic(style, true);
         }
@@ -187,17 +187,18 @@ public abstract class BasePanel extends JPanel {
                 Date date = new Date();
                 String timestamp = TimeUtils.timestampToDate(date.getTime() / 1000);
 
-                // 时间戳使用默认样式
-                Style timestampStyle = logStyles.get(STYLE_DEFAULT);
-                logDocument.insertString(logDocument.getLength(), "[" + timestamp + "] ", timestampStyle);
+                if (logDocument != null) {
+                    // 时间戳使用默认样式
+                    Style timestampStyle = logStyles.get(STYLE_DEFAULT);
+                    logDocument.insertString(logDocument.getLength(), "[" + timestamp + "] ", timestampStyle);
 
-                // 消息使用指定样式
-                Style messageStyle = logStyles.getOrDefault(styleName, logStyles.get(STYLE_DEFAULT));
-                logDocument.insertString(logDocument.getLength(), message + "\n", messageStyle);
+                    // 消息使用指定样式
+                    Style messageStyle = logStyles.getOrDefault(styleName, logStyles.get(STYLE_DEFAULT));
+                    logDocument.insertString(logDocument.getLength(), message + "\n", messageStyle);
 
-                // 自动滚动到最后
-                logArea.setCaretPosition(logDocument.getLength());
-
+                    // 自动滚动到最后
+                    logArea.setCaretPosition(logDocument.getLength());
+                }
                 // 如果日志行数过多，自动清理（保留最近500行）
                 autoCleanLog();
 
